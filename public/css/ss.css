@@ -1,0 +1,36 @@
+.percept {
+	padding: 5px;
+	margin-bottom: 5px;
+	border: solid 1px #ddd;
+	border-radius: 5px;
+	background-color: #d4f5d4;
+}
+
+.identity {
+	display: inline;
+	float: left;
+}
+
+.orientation {
+	float: right;
+}
+
+.rating {
+	background: url("/images/rating/stars-base.png") 0 0;
+	width: 160px;
+	height: 32px;
+}
+
+.rating-colored {
+	position: relative;
+	left: 0px;
+	margin-top: -32px;
+	width: 16px;
+	height: 32px;
+	background: url("/images/rating/stars-colored.png") 0 0;
+}
+
+.price-level {
+	color: #0a0;
+	font-size: 2em;
+}

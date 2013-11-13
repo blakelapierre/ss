@@ -1,0 +1,9 @@
+{
+    "name": "sixth_sense",
+    "version": "0.0.1",
+    "description": "additional sensory perception",
+    "dependencies": {
+        "express": "latest"
+    },
+    "author": "Blake La Pierre"
+}
