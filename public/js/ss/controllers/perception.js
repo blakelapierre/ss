@@ -1,4 +1,4 @@
-ss.SixthSense = ss.SixthSense || angular.module('SixthSense', ['ss-filters-priceLevel', 'ss-services-sensorResource', 'ss-services-geolocationResource', 'ss-directives-viewport']);
+ss.SixthSense = ss.SixthSense || angular.module('SixthSense', ['ss-filters-priceLevel', 'ss-services-sensorResource', 'ss-services-geolocationResource', 'ss-directives-perceptionPanel']);
 ss.SixthSense
 .controller('PerceptionCtrl', ['$scope', '$timeout', 'sensorResource', 'geolocationResource', function($scope, $timeout, sensorResource, geolocationResource) {
 	// These should come out of the controller I think. Probably need to create directive(s)

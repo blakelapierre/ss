@@ -12,7 +12,7 @@
 	</script>
 	<script type="text/javascript" src="/js/ss/utilities.js"></script>
 	<script type="text/javascript" src="/js/ss/filters/priceLevel.js"></script>
-	<script type="text/javascript" src="/js/ss/directives/viewport.js"></script>
+	<script type="text/javascript" src="/js/ss/directives/perceptionPanel.js"></script>
 	<script type="text/javascript" src="/js/ss/services/geolocationResource.js"></script>
 	<script type="text/javascript" src="/js/ss/services/orientationResource.js"></script>
 	<script type="text/javascript" src="/js/ss/services/sensorResource.js"></script>
@@ -25,39 +25,7 @@
 	<link rel="stylesheet" href="/css/ss.css" />
 </head>
 <body>
-	<div ng-controller="PerceptionCtrl" viewport>
-		<form class="search-container form-inline" ng-submit="search()">
-			<input class="form-control" type="text" ng-model="searchFor" placeholder="Search for..." tabindex="1">
-			<input class="form-control btn btn-primary" type="submit" value="Search">
-		</form>
-		<div style="overflow-y:scroll;" ng-style="{'height': tableHeight + 'px'}">
-			<div class="panel panel-default container-fluid" ng-repeat="percept in perception.percepts">
-				<div class="row panel-body show-grid">
-					<div class="col-md-10 col-xs-8">
-						<ul class="list-unstyled">
-							<li><h1>{{percept.name}}</h1></li>
-							<li><h3>{{percept.vicinity}}</h3></li>
-						</ul>
-					</div>
-					<div class="col-md-1 col-xs-2 text-center">
-						<ul class="list-unstyled">
-							<li class="rating"></li>
-							<li class="rating-colored" ng-style="{'width': 32 * percept.rating + 'px'}"></li>
-						</ul>
-						<div class="price-level">{{percept.priceLevel | priceLevel}}</div>
-					</div>
-					<div class="col-md-1 col-xs-2 text-center">
-						<div><img src="/images/arrow/moon.png" ng-style="{'-webkit-transform': 'rotate(' + percept.rotation + 'deg)'}" width="32" height="32" /></div>
-						<div class="text-center"><h2>{{percept.direction}}</h2></div>
-						<div class="text-center"><h3>{{percept.distance | number}} miles</h3></div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			
-		</div>
-		<div id="map" ng-style="{'height': mapHeight + 'px', 'width': mapWidth + 'px'}"></div>
-	</div>
+	<perception-panel></perception-panel>
 </body>
 
 </html>
