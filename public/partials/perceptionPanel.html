@@ -10,6 +10,7 @@
 					<ul class="list-unstyled">
 						<li><h1>{{percept.name}}</h1></li>
 						<li><h3>{{percept.vicinity}}</h3></li>
+						<li><img src="{{percept.icon}}" /></li>
 					</ul>
 				</div>
 				<div class="col-md-1 col-xs-2 text-center">
@@ -19,15 +20,38 @@
 					</ul>
 					<div class="price-level">{{percept.priceLevel | priceLevel}}</div>
 				</div>
-				<div class="col-md-1 col-xs-2 text-center">
-					<div><img src="/images/arrow/moon.png" ng-style="{'-webkit-transform': 'rotate(' + percept.rotation + 'deg)'}" width="32" height="32" /></div>
-					<div class="text-center"><h2>{{percept.direction}}</h2></div>
-					<div class="text-center"><h3>{{percept.distance | number}} miles</h3></div>
+				<div class="col-md-1 col-xs-2">
+					<div class="text-center cell">
+						<div class="stage" ng-style="{'-webkit-transform': 'rotateZ(' + (percept.orientation.alpha - 180) + 'deg) rotateX(' + percept.orientation.beta + 'deg) rotateY(' + (-percept.orientation.gamma - 90) + 'deg)' }">
+							<div class="assembly">
+								<div class="arrow">
+									<div class="tail">
+										<div class="base"></div>
+										<div class="top"></div>
+										<div class="left"></div>
+										<div class="bottom"></div>
+										<div class="right"></div>
+									</div>
+									<div class="head">
+										<div class="base"></div>
+										<div class="top"></div>
+										<div class="left"></div>
+										<div class="bottom"></div>
+										<div class="right"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="info">
+						<div><h2>{{percept.direction}}</h2></div>
+						<div><h3>{{percept.distance | number}} miles</h3></div>
+					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
 		
 	</div>
-	<div id="map" class="percept-map"></div>
+	<div map id="map" class="percept-map" ng-class="{'percept-map':'true', 'fullscreen': fullscreenClass}"></div>
 </div>

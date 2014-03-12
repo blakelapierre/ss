@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="/css/ss.css" />
+	<style type="text/css">
+	body {
+		padding: 0px;
+		margin: 0px;
+		width: 100%;
+	}
+
+	.viewport {
+		width: 800px;
+		height: 800px;
+		padding: 0px;
+		margin: 0 auto;
+		border: solid 1px #e00;
+	}
+	</style>
+
+	<script type="text/javascript" src="/js/jquery.2.0.3.min.js"></script>
+	<script type="text/javascript" src="/js/angular.1.2.0rc1.min.js"></script>
+	<script type="text/javascript" src="/js/underscore.1.4.4.js"></script>
+
+	<script type="text/javascript">
+	angular.module('CSS-3D-Studio')
+	.controller('ViewportCtrl', ['$scope', function($scope) {
+		$scope.cameraStyle = {
+			'-webkit-transform': 'rotateY(80deg)'
+		};
+	}]);
+	</script>
+</head>
+<body>
+	<div class="viewport" ng-controller="ViewportCtrl">
+		<div class="camera" ng-style="cameraStyle">
+			<div class="assembly">
+				<div class="arrow">
+					<div class="tail">
+						<div class="base"></div>
+						<div class="top"></div>
+						<div class="left"></div>
+						<div class="bottom"></div>
+						<div class="right"></div>
+					</div>
+					<div class="head">
+						<div class="base"></div>
+						<div class="top"></div>
+						<div class="left"></div>
+						<div class="bottom"></div>
+						<div class="right"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

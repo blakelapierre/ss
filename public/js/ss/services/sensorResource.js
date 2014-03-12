@@ -33,7 +33,8 @@ ss.sensorsService
 							distance: distance,
 							bearing: bearing,
 							direction: directionAbbreviation(bearing),
-							rotation: bearing - perception.orientation.heading
+							rotation: bearing - perception.orientation.heading,
+							icon: result.icon
 						});
 
 						//Should this be in a factory?
@@ -68,24 +69,25 @@ ss.sensorsService
 			});
 
 
-			orientationResource.listenToOrientation(1, function(event) {
-				var oldHeading = perception.orientation.heading;
-				perception.orientation = event;
-				var heading = 360 - perception.orientation.alpha;
-				if (oldHeading != heading) {
-					if (perception.orientation.heading !== heading) {
-						perception.orientation.heading = heading;
-						perception.orientation.direction = directionAbbreviation(heading);
+			// orientationResource.listenToOrientation(1, function(event) {
+			// 	var oldHeading = perception.orientation.heading;
+			// 	perception.orientation = event;
+			// 	var heading = 360 - perception.orientation.alpha;
+			// 	if (oldHeading != heading) {
+			// 		if (perception.orientation.heading !== heading) {
+			// 			console.log(perception);
+			// 			perception.orientation.heading = heading;
+			// 			perception.orientation.direction = directionAbbreviation(heading);
 						
-						for (var i = 0; i < perception.percepts.length; i++) {
-							var percept = perception.percepts[i];
-							percept.rotation = percept.bearing - heading;
-						}
+			// 			for (var i = 0; i < perception.percepts.length; i++) {
+			// 				var percept = perception.percepts[i];
+			// 				percept.rotation = percept.bearing - heading;
+			// 			}
 
-						$rootScope.$apply();
-					}
-				}
-			});
+			// 			$rootScope.$apply();
+			// 		}
+			// 	}
+			// });
 
 			return perception;
 		}
